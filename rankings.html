@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rankings - E-Sports Club</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 引入 style.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Video -->
+    <video class="background-video" autoplay muted loop playsinline>
+        <source src="animation.mp4" type="video/mp4">
+    </video>
+    <!-- Dark overlay -->
+    <div class="video-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <div class="navbar-brand fw-bold" >
+                E-SPORTS CLUB
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="home.html">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tournaments.html">TOURNAMENTS</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="rankings.html">RANKINGS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="players.html">PLAYERS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="events.html">EVENTS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">ABOUT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html" id="loginLink">LOGIN</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面主体 -->
+    <main class="container my-5">
+
+        <!-- 页面标题与切换选项卡 -->
+        <div class="text-center mb-4">
+            <h1 class="fw-bold text-uppercase">Global Leaderboard</h1>
+            <p class="text-info">Top competitive players across all main titles.</p>
+
+            <!-- 游戏排行榜切换按钮 -->
+            <div class="btn-group mt-2" role="group" id="ranking-game-tabs">
+                <button type="button" class="btn btn-outline-info active" data-game="valorant"><i
+                        class="fa-solid fa-crosshairs me-1"></i> Valorant</button>
+                <button type="button" class="btn btn-outline-info" data-game="mlbb"><i
+                        class="fa-solid fa-shield-halved me-1"></i> Mobile Legends</button>
+                <button type="button" class="btn btn-outline-info" data-game="fifa"><i
+                        class="fa-solid fa-futbol me-1"></i> FIFA</button>
+            </div>
+        </div>
+
+        <!-- Top 3 选手领奖台区域 -->
+        <div class="row g-4 mb-5" id="top3-container">
+            <!-- 2nd Place -->
+            <div class="col-md-4 order-md-1 order-2">
+                <div class="card p-3 text-center h-100 border-secondary">
+                    <span class="badge badge-rank-2 w-50 mx-auto mb-2">RANK 2</span>
+                    <h4 id="top2-name" class="fw-bold mt-2">Loading...</h4>
+                    <p id="top2-team" class="text-muted small mb-1">-</p>
+                    <p id="top2-score" class="text-info fw-bold m-0">-</p>
+                </div>
+            </div>
+            <!-- 1st Place (中间放大突出) -->
+            <div class="col-md-4 order-md-2 order-1">
+                <div class="card p-4 text-center h-100 border-info shadow-lg transform-scale">
+                    <span class="badge badge-rank-1 d-inline-block px-4 mx-auto mb-2 fs-6">CHAMPION</span>
+                    <h3 id="top1-name" class="fw-bold mt-2 text-warning">Loading...</h3>
+                    <p id="top1-team" class="text-muted small mb-1">-</p>
+                    <p id="top1-score" class="text-info fs-5 fw-bold m-0">-</p>
+                </div>
+            </div>
+            <!-- 3rd Place -->
+            <div class="col-md-4 order-md-3 order-3">
+                <div class="card p-3 text-center h-100 border-secondary">
+                    <span class="badge badge-rank-3 w-50 mx-auto mb-2">RANK 3</span>
+                    <h4 id="top3-name" class="fw-bold mt-2">Loading...</h4>
+                    <p id="top3-team" class="text-muted small mb-1">-</p>
+                    <p id="top3-score" class="text-info fw-bold m-0">-</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 完整排行榜表格 -->
+        <div class="card p-3 shadow mb-5">
+            <h4 class="text-info mb-3"><i class="fa-solid fa-list-ol me-2"></i>Full Standings</h4>
+            <div class="table-responsive">
+                <table class="table table-dark-custom align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 80px;">Rank</th>
+                            <th scope="col">Player Name</th>
+                            <th scope="col">Team</th>
+                            <th scope="col">Rating / Points</th>
+                            <th scope="col">Win Rate</th>
+                            <th scope="col" class="text-center" style="width: 100px;">Favorite</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ranking-table-body">
+                        <!-- 动态填充 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 与队友 Events 页面联动的纯 HTML 卡片 -->
+        <div class="card p-4 shadow border-info">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+                <div>
+                    <div class="d-flex align-items-center gap-2 mb-1">
+                        <span class="badge bg-danger text-uppercase p-2">Upcoming Championship Matches</span>
+                    </div>
+                    <h5 class="m-0 text-white fw-bold">
+                        <i class="fa-solid fa-calendar-star text-info me-2"></i>Watch Top Players Live
+                    </h5>
+                    <p class="text-muted small mb-0 mt-1">
+                        Want to see these ranked pro players compete in action? Check out the latest tournament
+                        schedules!
+                    </p>
+                </div>
+                <div>
+                    <!-- 纯 HTML 超链接跳转 -->
+                    <a href="events.html" class="btn btn-info fw-bold px-4 py-2 text-nowrap">
+                        <i class="fa-solid fa-ticket me-2"></i>View Event Schedule
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- JS 脚本 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // 静态排行榜数据（选手名字与 players.html 严格一致）
+        const rankingData = {
+            valorant: [
+                { rank: 1, name: "TenZ", team: "Sentinels", points: "1,240 Pt", winRate: "68%" },
+                { rank: 2, name: "Aspas", team: "LEVIATÁN", points: "1,190 Pt", winRate: "71%" },
+                { rank: 3, name: "Derke", team: "Fnatic", points: "1,155 Pt", winRate: "66%" },
+                { rank: 4, name: "Chronicle", team: "Fnatic", points: "1,080 Pt", winRate: "64%" },
+                { rank: 5, name: "Demon1", team: "NRG", points: "1,020 Pt", winRate: "62%" }
+            ],
+            mlbb: [
+                { rank: 1, name: "Kairi", team: "ONIC Esports", points: "2,450 Stars", winRate: "78%" },
+                { rank: 2, name: "Sanz", team: "ONIC Esports", points: "2,310 Stars", winRate: "75%" },
+                { rank: 3, name: "KarlTzy", team: "ECHO", points: "2,280 Stars", winRate: "73%" },
+                { rank: 4, name: "CW", team: "ONIC Esports", points: "2,100 Stars", winRate: "70%" },
+                { rank: 5, name: "Kiboy", team: "ONIC Esports", points: "1,980 Stars", winRate: "69%" }
+            ],
+            fifa: [
+                { rank: 1, name: "Tekkz", team: "Fnatic", points: "3,890 ELO", winRate: "85%" },
+                { rank: 2, name: "Matias", team: "Team Liquid", points: "3,750 ELO", winRate: "82%" },
+                { rank: 3, name: "Vejrgang", team: "RBL ZEZ", points: "3,680 ELO", winRate: "81%" },
+                { rank: 4, name: "Nicolas99fc", team: "Guild Esports", points: "3,520 ELO", winRate: "79%" },
+                { rank: 5, name: "ManuBachoore", team: "Team Gullit", points: "3,410 ELO", winRate: "76%" }
+            ]
+        };
+
+        $(document).ready(function () {
+            let savedGame = sessionStorage.getItem('selectedRankGame') || 'valorant';
+
+            $(`#ranking-game-tabs button[data-game="${savedGame}"]`).addClass('active').siblings().removeClass('active');
+            renderRankings(savedGame);
+
+            $('#ranking-game-tabs button').click(function () {
+                $('#ranking-game-tabs button').removeClass('active');
+                $(this).addClass('active');
+
+                let currentGame = $(this).attr('data-game');
+                sessionStorage.setItem('selectedRankGame', currentGame);
+                renderRankings(currentGame);
+            });
+        });
+
+        // 渲染排行榜表格
+        function renderRankings(game) {
+            let list = rankingData[game];
+
+            $('#top1-name').text(list[0].name);
+            $('#top1-team').text(list[0].team);
+            $('#top1-score').text(list[0].points);
+
+            $('#top2-name').text(list[1].name);
+            $('#top2-team').text(list[1].team);
+            $('#top2-score').text(list[1].points);
+
+            $('#top3-name').text(list[2].name);
+            $('#top3-team').text(list[2].team);
+            $('#top3-score').text(list[3]?.points || list[2].points);
+
+            // 读取与 players.html 相同的 Key: 'favPlayers'
+            let currentUser = sessionStorage.getItem("loggedInUser");
+            let favs = currentUser ? JSON.parse(localStorage.getItem('favPlayers_' + currentUser) || '[]') : [];
+
+            let tableHtml = '';
+            list.forEach(item => {
+                let badgeClass = '';
+                if (item.rank === 1) badgeClass = 'badge-rank-1';
+                else if (item.rank === 2) badgeClass = 'badge-rank-2';
+                else if (item.rank === 3) badgeClass = 'badge-rank-3';
+                else badgeClass = 'bg-secondary';
+
+                let isFav = favs.includes(item.name) ? 'active' : '';
+
+                tableHtml += `
+                    <tr>
+                        <td><span class="badge ${badgeClass} px-3 py-2">${item.rank}</span></td>
+                        <td class="fw-bold">${item.name}</td>
+                        <td class="text-muted">${item.team}</td>
+                        <td class="text-info">${item.points}</td>
+                        <td>${item.winRate}</td>
+                        <td class="text-center">
+                            <i class="fa-solid fa-star fav-star ${isFav}" onclick="toggleRankFav(this, '${item.name}')"></i>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            $('#ranking-table-body').html(tableHtml);
+        }
+
+        // 星标收藏逻辑（统一使用 favPlayers 和 选手名字）
+        function toggleRankFav(icon, playerName) {
+            let currentUser = sessionStorage.getItem("loggedInUser");
+
+            // 未登录检查
+            if (!currentUser) {
+                alert("Please log in first to save favorites!");
+                return;
+            }
+
+            let key = 'favPlayers_' + currentUser;
+            let favs = JSON.parse(localStorage.getItem(key) || '[]');
+
+            if (favs.includes(playerName)) {
+                favs = favs.filter(name => name !== playerName);
+                $(icon).removeClass('active');
+            } else {
+                favs.push(playerName);
+                $(icon).addClass('active');
+            }
+
+            localStorage.setItem(key, JSON.stringify(favs));
+        }
+    </script>
+
+    <script>
+        let loggedInUser = sessionStorage.getItem("loggedInUser");
+        let loginLink = document.getElementById("loginLink");
+
+        if (loggedInUser) {
+            loginLink.textContent = loggedInUser.charAt(0).toUpperCase();
+            loginLink.classList.add("user-circle");
+
+            loginLink.addEventListener("click", function (event) {
+                event.preventDefault();
+                window.location.href = "profile.html";
+            });
+        }
+    </script>   
+    <!-- Footer -->
+    <footer class="navbar-dark text-center py-4 mt-4">
+
+        <p class="mb-0">
+            &copy; 2026 E-Sports Club. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

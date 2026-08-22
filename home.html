@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>E-Sports Club | Home</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Video -->
+    <video class="background-video" autoplay muted loop playsinline>
+        <source src="animation.mp4" type="video/mp4">
+    </video>
+
+    <!-- Dark overlay -->
+    <div class="video-overlay"></div>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <div class="navbar-brand fw-bold" >
+                E-SPORTS CLUB
+            </div>
+
+            
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="home.html">HOME</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="tournaments.html">
+                            TOURNAMENTS
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="rankings.html">
+                            RANKINGS
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="players.html">
+                            PLAYERS
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">
+                            EVENTS
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            ABOUT
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html" id="loginLink">
+                            LOGIN
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Welcome Section -->
+    <section class="py-5 text-center">
+        <div class="container py-5">
+
+            <h1 class="display-4 fw-bold">
+                WELCOME TO THE
+                <span class="text-info">E-SPORTS CLUB</span>
+            </h1>
+
+            <p class="lead mt-4">
+                Join our community of passionate gamers, compete in exciting
+                tournaments, improve your skills, and become part of the
+                next generation of E-Sports champions.
+            </p>
+
+            <a href="about.html" class="btn btn-info btn-lg mt-3">
+                JOIN US
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- Featured Tournament -->
+    <section class="py-5">
+        <div class="container">
+
+            <h2 class="text-center text-info mb-4">
+                FEATURED TOURNAMENT
+            </h2>
+
+            <div class="card text-center shadow">
+                <div class="card-body p-5">
+
+                    <h3 class="card-title">
+                        VCT Masters 2026
+                    </h3>
+
+                    <p class="mt-3">
+                        <strong>Date:</strong> Oct 15 - Oct 30, 2026
+                    </p>
+
+                    <p>
+                        <strong>Game:</strong> Valorant
+                    </p>
+
+                    <p>
+                        <strong>Prize Pool:</strong> RM500,000
+                    </p>
+
+                    <p>
+                        <strong>Status:</strong>
+                        <span class="badge bg-success">Upcoming</span>
+                    </p>
+
+                    <a href="tournaments.html" class="btn btn-info mt-3">
+                        VIEW TOURNAMENT
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Top Ranked Players -->
+    <section class="py-5">
+        <div class="container">
+
+            <h2 class="text-center text-info mb-4">
+                TOP RANKED PLAYERS OF VALORANT
+            </h2>
+
+            <div class="table-responsive">
+
+                <table class="table table-dark-custom text-center">
+
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player Name</th>
+                            <th>Team</th>
+                            <th>Rating/Points</th>
+                            <th>Win rate</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <span class="badge badge-rank-1">
+                                    1
+                                </span>
+                            </td>
+                            <td>TenZ</td>
+                            <td>Sentinels</td>
+                            <td>1,240 Radiant Pt</td>
+                            <td>68%</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span class="badge badge-rank-2">
+                                    2
+                                </span>
+                            </td>
+                            <td>Aspas</td>
+                            <td>LEVIATÁN</td>
+                            <td>1,190 Radiant Pt</td>
+                            <td>71%</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span class="badge badge-rank-3">
+                                    3
+                                </span>
+                            </td>
+                            <td>Derke</td>
+                            <td>NRG</td>
+                            <td>1,020 Radiant Pt</td>
+                            <td>62%</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="rankings.html" class="btn btn-info">
+                    VIEW FULL RANKINGS
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    
+
+
+    <!-- Upcoming Events -->
+    <section class="py-5">
+        <div class="container">
+
+            <h2 class="text-center text-info mb-4">
+                UPCOMING EVENTS
+            </h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <div class="card h-100">
+                        <div class="card-body">
+
+                            <h4 class="card-title text-info">
+                                Mobile Legends Semi Final
+                            </h4>
+
+                            <p><strong>Date:</strong> 24 August 2026</p>
+                            <p><strong>Time:</strong> 6:00 PM</p>
+
+                            <p>
+                                Team Phoenix VS Team Griffin
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="card h-100">
+                        <div class="card-body">
+
+                            <h4 class="card-title text-info">
+                                Mobile Legends Championship Match
+                            </h4>
+
+                            <p><strong>Date:</strong> 25 August 2026</p>
+                            <p><strong>Time:</strong> 8:00 PM</p>
+
+                            <p>
+                                Grand Final (Team Phoenix vs Team Evos)
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="card h-100">
+                        <div class="card-body">
+
+                            <h4 class="card-title text-info">
+
+                                Valorant Group Stage - Match 1
+                            </h4>
+
+                            <p><strong>Date:</strong> 15 October 2026</p>
+                            <p><strong>Time:</strong> 10:00 AM</p>
+
+                            <p>
+                                Team Alpha VS Team Omega
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Latest News -->
+    <section class="py-5">
+        <div class="container">
+
+            <h2 class="text-center text-info mb-4">
+                LATEST NEWS
+            </h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+
+                            <h4 class="text-info">
+                                New Members Registration
+                            </h4>
+
+                            <p>
+                                Registration for new E-Sports Club
+                                members is now open!
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+
+                            <h4 class="text-info">
+                                Team Alpha Wins!
+                            </h4>
+
+                            <p>
+                                Congratulations to Team Alpha for winning
+                                the latest competition.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+
+                            <h4 class="text-info">
+                                New Gaming Tournament
+                            </h4>
+
+                            <p>
+                                Our next Valorant Championship Tour is coming
+                                soon. Register your team now!
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="navbar-dark text-center py-4 mt-4">
+
+        <p class="mb-0">
+            &copy; 2026 E-Sports Club. All Rights Reserved.
+        </p>
+
+    </footer>
+
+    <script>
+        let loggedInUser = sessionStorage.getItem("loggedInUser");
+        let loginLink = document.getElementById("loginLink");
+
+        if (loggedInUser) {
+
+            // Show user's first letter
+            loginLink.textContent =
+                loggedInUser.charAt(0).toUpperCase();
+
+            loginLink.classList.add("user-circle");
+
+            // Click profile
+            loginLink.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                window.location.href = "profile.html";
+            });
+        }
+    </script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
