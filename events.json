@@ -1,0 +1,24 @@
+{
+  "status": "success",
+  "total": 2,
+  "data": [
+    {
+      "id": "evt_001",
+      "title": "VCT Champions 2026 Grand Finals",
+      "game": "Valorant",
+      "status": "LIVE",
+      "teams": "Sentinels vs Fnatic",
+      "score": "1 - 1",
+      "stream_url": "https://twitch.tv/valorant"
+    },
+    {
+      "id": "evt_002",
+      "title": "MPL Malaysia Season 17",
+      "game": "Mobile Legends",
+      "status": "UPCOMING",
+      "teams": "Onic PH vs Selangor Red Giants",
+      "score": "VS",
+      "stream_url": "#"
+    }
+  ]
+}

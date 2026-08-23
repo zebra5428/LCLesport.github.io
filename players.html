@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players - E-Sports Club</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Video -->
+    <video class="background-video" autoplay muted loop playsinline>
+        <source src="animation.mp4" type="video/mp4">
+    </video>
+    <!-- Dark overlay -->
+    <div class="video-overlay"></div>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <div class="navbar-brand fw-bold">
+                E-SPORTS CLUB
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tournaments.html">TOURNAMENTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rankings.html">RANKINGS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="players.html">PLAYERS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">EVENTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html" id="loginLink">LOGIN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="container my-5">
+
+        <!-- Page Header & Title -->
+        <div class="text-center mb-5">
+            <h1 class="fw-bold text-uppercase">Pro <span style="color: #00d4ff;">Players</span> Profile</h1>
+            <p class="text-info">Explore top players across Valorant, Mobile Legends, and FIFA.</p>
+
+            <!-- Game Category Filter Buttons (Managed via jQuery) -->
+            <div class="btn-group mt-3" role="group" id="game-filter">
+                <button type="button" class="btn btn-outline-info active" data-filter="all">All Games</button>
+                <button type="button" class="btn btn-outline-info" data-filter="valorant">Valorant</button>
+                <button type="button" class="btn btn-outline-info" data-filter="mlbb">Mobile Legends</button>
+                <button type="button" class="btn btn-outline-info" data-filter="fifa">FIFA</button>
+            </div>
+        </div>
+
+        <!-- Player Cards Grid -->
+        <div class="row g-4" id="player-grid">
+
+            <!-- 1. Valorant Category -->
+            <!-- 1. TenZ -->
+            <div class="col-12 col-md-4 player-item" data-game="valorant">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'TenZ')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://prosettings.net/wp-content/uploads/tenz-1200x675-fitpad-s2.png"
+                        class="player-avatar" alt="TenZ">
+                    <div class="card-body">
+                        <span class="badge bg-danger mb-2">VALORANT</span>
+                        <h5 class="card-title fw-bold">TenZ <small class="text-muted fs-6">(Sentinels)</small></h5>
+                        <p class="card-text text-muted mb-2">Role: Duelist (Jett/Reyna)</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 1,240 Pt</span>
+                            <span>Win Rate: 68%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('TenZ', 'Valorant', 'Sentinels', '1,240 Pt', '68%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Aspas -->
+            <div class="col-12 col-md-4 player-item" data-game="valorant">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'Aspas')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGydG_1O2cqr-EHpHzNqYBA0F-chXzr9We9FDLv_goRkkUkFc0_nLiWd1F&s=10"
+                        class="player-avatar" alt="Aspas">
+                    <div class="card-body">
+                        <span class="badge bg-danger mb-2">VALORANT</span>
+                        <h5 class="card-title fw-bold">Aspas <small class="text-muted fs-6">(LEVIATÁN)</small></h5>
+                        <p class="card-text text-muted mb-2">Role: Entry Duelist</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 1,190 Pt</span>
+                            <span>Win Rate: 71%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('Aspas', 'Valorant', 'LEVIATÁN', '1,190 Pt', '71%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Derke -->
+            <div class="col-12 col-md-4 player-item" data-game="valorant">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'Derke')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://insider-gaming.com/wp-content/uploads/2024/10/derke-valorant.jpeg" class="player-avatar"
+                        alt="Derke">
+                    <div class="card-body">
+                        <span class="badge bg-danger mb-2">VALORANT</span>
+                        <h5 class="card-title fw-bold">Derke <small class="text-muted fs-6">(Fnatic)</small></h5>
+                        <p class="card-text text-muted mb-2">Role: Main Fragger</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 1,155 Pt</span>
+                            <span>Win Rate: 66%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('Derke', 'Valorant', 'Fnatic', '1,155 Pt', '66%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Chronicle -->
+            <div class="col-12 col-md-4 player-item" data-game="valorant">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'Chronicle')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_yNT1oPAveAKnYQ6fWha-82FXhtMGZ1HkfEtkzwbNZu0bHo3GD3cIXnM&s=10" class="player-avatar"
+                        alt="Chronicle">
+                    <div class="card-body">
+                        <span class="badge bg-danger mb-2">VALORANT</span>
+                        <h5 class="card-title fw-bold">Chronicle <small class="text-muted fs-6">(Fnatic)</small></h5>
+                        <p class="card-text text-muted mb-2">Role: Flex / Initiator</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 1,080 Pt</span>
+                            <span>Win Rate: 64%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('Chronicle', 'Valorant', 'Fnatic', '1,080 Pt', '64%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Demon1 -->
+            <div class="col-12 col-md-4 player-item" data-game="valorant">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'Demon1')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://prosettings.net/wp-content/uploads/demon1-1200x675-fitpad-s2.webp" class="player-avatar"
+                        alt="Demon1">
+                    <div class="card-body">
+                        <span class="badge bg-danger mb-2">VALORANT</span>
+                        <h5 class="card-title fw-bold">Demon1 <small class="text-muted fs-6">(NRG)</small></h5>
+                        <p class="card-text text-muted mb-2">Role: Controller / Duelist</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 1,020 Pt</span>
+                            <span>Win Rate: 62%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('Demon1', 'Valorant', 'NRG', '1,020 Pt', '62%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Mobile Legends Category -->
+            <!-- 1. Kairi -->
+            <div class="col-12 col-md-4 player-item" data-game="mlbb">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'Kairi')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://cdn.oneesports.gg/wp-content/uploads/2022/08/MLBB_MPL_ID_S10_Kairi_pose.jpg" class="player-avatar"
+                        alt="Kairi">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">MOBILE LEGENDS</span>
+                        <h5 class="card-title fw-bold">Kairi <small class="text-muted fs-6">(ONIC Esports)</small></h5>
+                        <p class="card-text text-muted mb-2">Role: Jungler (Fanny/Ling)</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 2,450 Stars</span>
+                            <span>Win Rate: 78%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('Kairi', 'Mobile Legends', 'ONIC Esports', '2,450 Stars', '78%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Sanz -->
+            <div class="col-12 col-md-4 player-item" data-game="mlbb">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'Sanz')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://cdn.oneesports.gg/wp-content/uploads/2020/09/Mobile_Legends_Sanz_ONIC.jpg" class="player-avatar"
+                        alt="Sanz">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">MOBILE LEGENDS</span>
+                        <h5 class="card-title fw-bold">Sanz <small class="text-muted fs-6">(ONIC Esports)</small></h5>
+                        <p class="card-text text-muted mb-2">Role: Mid Laner (Mage)</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 2,310 Stars</span>
+                            <span>Win Rate: 75%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('Sanz', 'Mobile Legends', 'ONIC Esports', '2,310 Stars', '75%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. KarlTzy -->
+            <div class="col-12 col-md-4 player-item" data-game="mlbb">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'KarlTzy')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiq7JhNbG3Ljx5VFNkZkcyUAEEj7Jju_lqlPlTl2XhRvwZkGEFCJ8HAJs55Bnx0vn64vWKAXaZrnf-FDXDjE8fpl3g0pxnsNEpSa2dDiWSHpEB7c4pgrJkslgConatSh8TCBu7BMsC0cag8Zruvki24kUUOmens345KSWoS2eDbW6NNrmN7xRqQZBCwg/s1200/itg_KarlTzy_02.jpg" class="player-avatar"
+                        alt="KarlTzy">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">MOBILE LEGENDS</span>
+                        <h5 class="card-title fw-bold">KarlTzy <small class="text-muted fs-6">(ECHO)</small></h5>
+                        <p class="card-text text-muted mb-2">Role: Jungler (Lancelot)</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 2,280 Stars</span>
+                            <span>Win Rate: 73%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('KarlTzy', 'Mobile Legends', 'ECHO', '2,280 Stars', '73%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. CW -->
+            <div class="col-12 col-md-4 player-item" data-game="mlbb">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'CW')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://media.hitekno.com/thumbs/2022/04/06/93910-onic-cw-pro-player-mobile-legends-dari-onic-esports/730x480-img-93910-onic-cw-pro-player-mobile-legends-dari-onic-esports.jpg" class="player-avatar"
+                        alt="CW">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">MOBILE LEGENDS</span>
+                        <h5 class="card-title fw-bold">CW <small class="text-muted fs-6">(ONIC Esports)</small></h5>
+                        <p class="card-text text-muted mb-2">Role: Gold Laner (Marksman)</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 2,100 Stars</span>
+                            <span>Win Rate: 70%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('CW', 'Mobile Legends', 'ONIC Esports', '2,100 Stars', '70%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Kiboy -->
+            <div class="col-12 col-md-4 player-item" data-game="mlbb">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'Kiboy')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://image.ggwp.id/post/20250306/profil-onic-kiboy-640x360.jpg" class="player-avatar"
+                        alt="Kiboy">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">MOBILE LEGENDS</span>
+                        <h5 class="card-title fw-bold">Kiboy <small class="text-muted fs-6">(ONIC Esports)</small></h5>
+                        <p class="card-text text-muted mb-2">Role: Roamer (Tank)</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 1,980 Stars</span>
+                            <span>Win Rate: 69%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('Kiboy', 'Mobile Legends', 'ONIC Esports', '1,980 Stars', '69%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. FIFA Category -->
+            <!-- 1. Tekkz -->
+            <div class="col-12 col-md-4 player-item" data-game="fifa">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'Tekkz')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTbukbgKHjPmdzglJfT4U5zD_acx9tT3rXpcwUYEUSmEv-td2k5yMjklY&s=10" class="player-avatar"
+                        alt="Tekkz">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">FIFA / FC24</span>
+                        <h5 class="card-title fw-bold">Tekkz <small class="text-muted fs-6">(Fnatic)</small></h5>
+                        <p class="card-text text-muted mb-2">Preferred Team: Real Madrid</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 3,890 ELO</span>
+                            <span>Win Rate: 85%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('Tekkz', 'FIFA', 'Fnatic', '3,890 ELO', '85%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Matias -->
+            <div class="col-12 col-md-4 player-item" data-game="fifa">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'Matias')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://www.mancity.com/meta/media/nmpg5pbl/bonanno-2.jpg" class="player-avatar"
+                        alt="Matias">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">FIFA / FC24</span>
+                        <h5 class="card-title fw-bold">Matias <small class="text-muted fs-6">(Team Liquid)</small></h5>
+                        <p class="card-text text-muted mb-2">Preferred Team: Man City</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 3,750 ELO</span>
+                            <span>Win Rate: 82%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('Matias', 'FIFA', 'Team Liquid', '3,750 ELO', '82%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Vejrgang -->
+            <div class="col-12 col-md-4 player-item" data-game="fifa">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'Vejrgang')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://derivates.kicker.de/image/upload/c_crop,x_490,y_74,w_1902,h_1070/w_1000,q_auto/v1/2025/04/22/01f1ffc7-b973-4d4a-a24e-dd504151dbd2.jpeg" class="player-avatar"
+                        alt="Vejrgang">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">FIFA / FC24</span>
+                        <h5 class="card-title fw-bold">Vejrgang <small class="text-muted fs-6">(RBL ZEZ)</small></h5>
+                        <p class="card-text text-muted mb-2">Preferred Team: PSG</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 3,680 ELO</span>
+                            <span>Win Rate: 81%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('Vejrgang', 'FIFA', 'RBL ZEZ', '3,680 ELO', '81%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Nicolas99fc -->
+            <div class="col-12 col-md-4 player-item" data-game="fifa">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'Nicolas99fc')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSupsvB9fuxrOT3Y0iHjODf2Jy47gTfTQsVsayk_c9gV7KzBGsOzhBkUbkA&s=10" class="player-avatar"
+                        alt="Nicolas99fc">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">FIFA / FC24</span>
+                        <h5 class="card-title fw-bold">Nicolas99fc <small class="text-muted fs-6">(Guild
+                                Esports)</small></h5>
+                        <p class="card-text text-muted mb-2">Preferred Team: Arsenal</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 3,520 ELO</span>
+                            <span>Win Rate: 79%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('Nicolas99fc', 'FIFA', 'Guild Esports', '3,520 ELO', '79%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. ManuBachoore -->
+            <div class="col-12 col-md-4 player-item" data-game="fifa">
+                <div class="card player-card position-relative h-100 shadow">
+                    <button class="fav-btn" onclick="toggleFavorite(this, 'ManuBachoore')">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <img src="https://static.wixstatic.com/media/f95046_371bba5af39e4962aac5d3a5ab909ad2~mv2.webp/v1/fill/w_1000,h_563,al_c,q_85,usm_0.66_1.00_0.01/f95046_371bba5af39e4962aac5d3a5ab909ad2~mv2.webp" class="player-avatar"
+                        alt="ManuBachoore">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">FIFA / FC24</span>
+                        <h5 class="card-title fw-bold">ManuBachoore <small class="text-muted fs-6">(Team Gullit)</small>
+                        </h5>
+                        <p class="card-text text-muted mb-2">Preferred Team: Inter Milan</p>
+                        <div
+                            class="d-flex justify-content-between text-info small fw-bold border-top border-secondary pt-2">
+                            <span>Rating: 3,410 ELO</span>
+                            <span>Win Rate: 76%</span>
+                        </div>
+                        <button class="btn btn-register w-100 mt-3"
+                            onclick="showPlayerDetails('ManuBachoore', 'FIFA', 'Team Gullit', '3,410 ELO', '76%')">View
+                            Stats</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RESTful API Integration Section (Live Global Esports Events) -->
+        <div class="card p-4 my-5 shadow bg-dark text-light border-secondary">
+            <!-- Header & Sync Button -->
+            <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary">
+                <h3 class="fw-bold text-warning m-0 fs-4">
+                    <i class="fa-solid fa-tower-broadcast fa-fade me-2 text-danger"></i>Live Global Esports Events
+                </h3>
+                <button id="syncNewsBtn" class="btn btn-outline-warning btn-sm" onclick="fetchLiveEvents()">
+                    <i class="fa-solid fa-rotate me-1"></i> Sync Server
+                </button>
+            </div>
+
+            <!-- Events Container -->
+            <div class="row g-4" id="liveEventsContainer">
+                <div class="col-12 text-center text-muted py-4">
+                    <div class="spinner-border text-warning" role="status"></div>
+                    <p class="mt-2">Fetching live global events...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Media / Video Embed Section -->
+        <div class="card p-4 my-5 shadow">
+            <h4 class="text-info mb-3"><i class="fa-solid fa-circle-play me-2"></i>Featured Player Highlights</h4>
+            <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/hQyGZB5nS9A" title="Esports Highlights"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Modal Component for Player Stats -->
+    <div class="modal fade" id="playerModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-info fw-bold" id="modalPlayerName">Player Detail</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Game:</strong> <span id="modalGame"></span></p>
+                    <p><strong>Team:</strong> <span id="modalTeam"></span></p>
+                    <p><strong>KDA / Rank:</strong> <span id="modalKda"></span></p>
+                    <p><strong>Win Rate:</strong> <span id="modalWinRate"></span></p>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-closed" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Scripts Integration -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // 1. Cookies & LocalStorage initialization
+            document.cookie = "lastVisitedPage=players.html; path=/; max-age=86400";
+            loadFavorites();
+
+            // 2. jQuery Game Category Filter Functionality
+            $('#game-filter button').click(function () {
+                $('#game-filter button').removeClass('active');
+                $(this).addClass('active');
+
+                let filter = $(this).attr('data-filter');
+                if (filter === 'all') {
+                    $('.player-item').fadeIn();
+                } else {
+                    $('.player-item').hide();
+                    $(`.player-item[data-game="${filter}"]`).fadeIn();
+                }
+            });
+
+            // 3. Trigger Live Events API Fetch on Page Load
+            fetchLiveEvents();
+        });
+
+        // Toggle Player Favorite Status (LocalStorage)
+        function toggleFavorite(btn, playerName) {
+            let currentUser = sessionStorage.getItem("loggedInUser");
+
+            if (!currentUser) {
+                alert("Please log in first to save favorites!");
+                return;
+            }
+
+            let key = 'favPlayers_' + currentUser;
+            let favs = JSON.parse(localStorage.getItem(key) || '[]');
+
+            if (favs.includes(playerName)) {
+                favs = favs.filter(name => name !== playerName);
+                $(btn).removeClass('active');
+            } else {
+                favs.push(playerName);
+                $(btn).addClass('active');
+            }
+
+            localStorage.setItem(key, JSON.stringify(favs));
+        }
+
+        // Load Saved Favorites
+        function loadFavorites() {
+            let currentUser = sessionStorage.getItem("loggedInUser");
+            if (!currentUser) return;
+
+            let key = 'favPlayers_' + currentUser;
+            let favs = JSON.parse(localStorage.getItem(key) || '[]');
+
+            $('.player-card').each(function () {
+                let name = $(this).find('.card-title').text().split(' ')[0];
+                if (favs.includes(name)) {
+                    $(this).find('.fav-btn').addClass('active');
+                }
+            });
+        }
+
+        // Display Player Details Modal & Store Last Viewed in SessionStorage
+        function showPlayerDetails(name, game, team, kda, winrate) {
+            $('#modalPlayerName').text(name);
+            $('#modalGame').text(game);
+            $('#modalTeam').text(team);
+            $('#modalKda').text(kda);
+            $('#modalWinRate').text(winrate);
+
+            sessionStorage.setItem('lastViewedPlayer', name);
+
+            var myModal = new bootstrap.Modal(document.getElementById('playerModal'));
+            myModal.show();
+        }
+
+        // --- RESTful API Functions for Live Global Events ---
+
+        // Fetch Live Esports Events from local events.json or fallback mock data
+        function fetchLiveEvents() {
+            const container = document.getElementById('liveEventsContainer');
+            const syncBtn = document.getElementById('syncNewsBtn');
+
+            // Button loading animation
+            syncBtn.disabled = true;
+            syncBtn.innerHTML = '<i class="fa-solid fa-rotate fa-spin me-1"></i> Syncing...';
+
+            // Local fallback events data
+            const fallbackEvents = {
+                "status": "success",
+                "total": 2,
+                "data": [
+                    {
+                        "id": "evt_001",
+                        "title": "VCT Champions 2026 Grand Finals",
+                        "game": "Valorant",
+                        "status": "LIVE",
+                        "teams": "Sentinels vs Fnatic",
+                        "score": "1 - 1",
+                        "stream_url": "https://twitch.tv/valorant"
+                    },
+                    {
+                        "id": "evt_002",
+                        "title": "MPL Malaysia Season 17",
+                        "game": "Mobile Legends",
+                        "status": "UPCOMING",
+                        "teams": "Onic PH vs Selangor Red Giants",
+                        "score": "VS",
+                        "stream_url": "#"
+                    }
+                ]
+            };
+
+            // Attempt to fetch local events.json file
+            fetch('events.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(result => {
+                    if (result.status === 'success') {
+                        renderEvents(result.data);
+                    }
+                })
+                .catch(error => {
+                    console.warn('API / Local File fetch failed. Using embedded events data:', error);
+                    // Use local fallback object when file:// or endpoint fetch fails
+                    renderEvents(fallbackEvents.data);
+                })
+                .finally(() => {
+                    // Reset button state
+                    syncBtn.disabled = false;
+                    syncBtn.innerHTML = '<i class="fa-solid fa-rotate me-1"></i> Sync Server';
+                });
+        }
+
+        // Dynamically render event cards to the DOM
+        function renderEvents(events) {
+            const container = document.getElementById('liveEventsContainer');
+            container.innerHTML = ''; // Clear loading state
+
+            if (events.length === 0) {
+                container.innerHTML = '<div class="col-12 text-center text-muted">No live events currently active.</div>';
+                return;
+            }
+
+            events.forEach(event => {
+                const isLive = event.status === 'LIVE';
+                const badgeClass = isLive ? 'bg-danger' : 'bg-secondary';
+
+                const cardHTML = `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 bg-secondary text-white border-0 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge ${badgeClass}">${event.status}</span>
+                                    <small class="text-warning fw-bold">${event.game}</small>
+                                </div>
+                                <h5 class="card-title text-truncate">${event.title}</h5>
+                                <p class="card-text text-light my-3">
+                                    <strong>Match:</strong> ${event.teams} <br>
+                                    <strong>Score:</strong> <span class="text-info fw-bold">${event.score}</span>
+                                </p>
+                                <a href="${event.stream_url}" target="_blank" class="btn btn-sm btn-warning w-100 ${isLive ? '' : 'disabled'}">
+                                    <i class="fa-solid fa-play me-1"></i> ${isLive ? 'Watch Live Stream' : 'Event Standby'}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+        }
+    </script>
+
+    <script>
+        // User Authentication Logic (Update navbar icon based on SessionStorage)
+        let loggedInUser = sessionStorage.getItem("loggedInUser");
+        let loginLink = document.getElementById("loginLink");
+
+        if (loggedInUser) {
+            loginLink.textContent = loggedInUser.charAt(0).toUpperCase();
+            loginLink.classList.add("user-circle");
+
+            loginLink.addEventListener("click", function (event) {
+                event.preventDefault();
+                window.location.href = "profile.html";
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer class="navbar-dark text-center py-4 mt-4">
+
+        <p class="mb-0">
+            &copy; 2026 E-Sports Club. All Rights Reserved.
+        </p>
+
+    </footer>
+</body>
+
+</html>
